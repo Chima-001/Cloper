@@ -1,0 +1,62 @@
+[
+  {
+    "name": "HTML & CSS",
+    "description": "Semantic markup, responsive layouts, Flexbox, Grid, animations.",
+    "showAsCard": true,
+    "showInStack": true
+  },
+  {
+    "name": "JavaScript",
+    "description": "DOM manipulation, events, arrays, objects, localStorage, ES6+.",
+    "showAsCard": true,
+    "showInStack": true
+  },
+  {
+    "name": "Python",
+    "description": "Scripting, OOP, file I/O, data structures.",
+    "showAsCard": true,
+    "showInStack": true
+  },
+  {
+    "name": "C#",
+    "description": "Object-oriented programming, inheritance, encapsulation, abstraction.",
+    "showAsCard": true,
+    "showInStack": true
+  },
+  {
+    "name": "Git & GitHub",
+    "description": "Version control, branching, GitHub Pages deployment.",
+    "showAsCard": true,
+    "showInStack": true
+  },
+  {
+    "name": "AutoCAD",
+    "description": "Technical drafting and design for freelance clients.",
+    "showAsCard": true,
+    "showInStack": true
+  },
+  {
+    "name": "HTML5",
+    "description": null,
+    "showAsCard": false,
+    "showInStack": true
+  },
+  {
+    "name": "CSS3",
+    "description": null,
+    "showAsCard": false,
+    "showInStack": true
+  },
+  {
+    "name": "Django",
+    "description": null,
+    "showAsCard": false,
+    "showInStack": true
+  },
+  {
+    "name": "VS Code",
+    "description": null,
+    "showAsCard": false,
+    "showInStack": true
+  }
+]

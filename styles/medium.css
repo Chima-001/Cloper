@@ -1,0 +1,154 @@
+/* ============================================================
+   devnest-medium.css  |  480px & 640px BREAKPOINTS
+   Only contains what changes at each step.
+   clamp() in the base already handles fluid scaling —
+   these blocks handle structural layout shifts.
+   ============================================================ */
+
+
+/* ============================================================
+   480px — medium mobile
+   Key changes: hamburger position, slightly more room,
+   theme-bar offset, bigger popup.
+   ============================================================ */
+
+@media (min-width: 480px) {
+
+    /* header {
+        padding: 0.7rem 1.25rem;
+    } */
+
+    /* Hamburger switches from fixed (smallest mobile) to
+       absolute so it stays inside the header flow */
+    .hamburger {
+        /* position: absolute; */
+        right: 1.25rem;
+        top: 0.9rem;
+    }
+
+    /* Theme bar offset tracks the slightly taller header */
+    /* #theme-bar {
+        top: 66px;
+    } */
+
+    main {
+        max-width: 560px;
+    }
+
+    .popup-box {
+        max-width: 320px;
+    }
+}
+
+
+/* ============================================================
+   640px — tablet
+   Key changes: 2-col skill + project grids, larger images,
+   slightly wider container, better popup.
+   ============================================================ */
+
+@media (min-width: 640px) {
+
+    header {
+        /* padding: 0.75rem 1.5rem; */
+    }
+
+    /* #theme-bar {
+        top: 68px;
+    } */
+
+    main {
+        max-width: 700px;
+    }
+
+    /* 2-column skill cards */
+    .my-skills-wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 2-column project grid */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* Hero & about images get a bigger clamp range at tablet
+       (base clamp caps at 220px which is too small for 640px+) */
+    .hero-img img {
+        width: clamp(200px, 32vw, 300px);
+        height: clamp(200px, 32vw, 300px);
+    }
+
+    .about-img img {
+        width: clamp(180px, 28vw, 260px);
+        height: clamp(180px, 28vw, 260px);
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        /* flex-direction: row; */
+        /* justify-content: space-between; */
+        /* align-items: start; */
+        padding: 2.5rem clamp(2rem, 5vw, 4rem);
+        /* text-align: left; */
+        gap: 2rem;
+    }
+
+    .footer-title{
+        grid-column: 1/-1;
+        grid-row: 1;
+        text-align: center;
+    }
+
+    .footer-left{
+        grid-column: 1;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-left a{
+        font-size: 0.85rem;
+        transition: color var(--ease);
+    }
+
+    .footer-left ul {
+        justify-content: flex-start;
+    }
+
+    .social-links{
+        justify-content: center;
+        grid-row: 2;
+        grid-column: 2;
+    }
+
+    .social-links img {
+        width: 36px;
+        height: 36px;
+    }
+
+    footer::before{
+    content: 'CLOPER';
+    /* font-size: 200px; */
+}
+
+    .footer-right {
+        grid-column: 3;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        text-align: center;
+    }
+
+
+    .popup-box {
+        max-width: 380px;
+    }
+}

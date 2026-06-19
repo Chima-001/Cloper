@@ -1,0 +1,44 @@
+[
+  {
+    "platform": "GitHub",
+    "url": "https://github.com/Chima-001",
+    "icon": null,
+    "showInContact": true,
+    "showInFooter": false
+  },
+  {
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/in/chima-nnaji-1621523a3",
+    "icon": "images/linkedin-square.svg",
+    "showInContact": true,
+    "showInFooter": true
+  },
+  {
+    "platform": "Email",
+    "url": "mailto:cnnaji01@outlook.com",
+    "icon": null,
+    "showInContact": true,
+    "showInFooter": false
+  },
+  {
+    "platform": "Telegram",
+    "url": "https://t.me/heischima1",
+    "icon": null,
+    "showInContact": true,
+    "showInFooter": false
+  },
+  {
+    "platform": "Twitter",
+    "url": "https://x.com/_heisChima",
+    "icon": "images/twitter-3.svg",
+    "showInContact": true,
+    "showInFooter": true
+  },
+  {
+    "platform": "YouTube",
+    "url": "https://youtube.com",
+    "icon": "images/youtube-1.svg",
+    "showInContact": false,
+    "showInFooter": true
+  }
+]

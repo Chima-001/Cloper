@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chimamkpam Nnaji">
+    <meta name="description"
+        content="Chima Nnaji — Portfolio. Software developer and engineering student in Nigeria. Building responsive, dynamic web apps. Available for freelance.">
+    <title>Cloper Technologies — Home</title>
+    <meta property="og:title" content="Home — Cloper Technologies">
+    <meta property="og:description"
+        content="Chima Nnaji — Portfolio. Software developer and engineering student in Nigeria. Building responsive, dynamic web apps. Available for freelance.">
+    <meta property="og:image" content="https://chima-001.github.io/wdd131/project/images/logo.svg">
+    <meta property="og:url" content="https://chima-001.github.io/wdd131/project/index.html">
+    <link rel="icon" type="image/x-icon" href="images/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/smaller.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/home.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-top">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.svg" alt="Cloper Technologies logo.">
+                    <span class="title">CLOPER TECHNOLOGIES</span>
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <img id="theme-icon" src="images/dark-mode.svg" alt="Theme toggle icon">
+            </button>
+        </nav>
+    </header>
+    <section id="hero">
+        <div id="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-img">
+                <img id="hero-img" src="" alt="" width="300" loading="lazy" />
+            </div>
+            <div class="hero-text">
+                <h1 id="hero-name"></h1>
+                <p class="tagline" id="hero-tagline"></p>
+                <p class="bio" id="hero-bio"></p>
+                <div class="hero-btns">
+                    <a href="projects.html" class="prm-button">View My Work</a>
+                    <a href="contact.html" class="outline-button">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section id="my-skills">
+            <h2>Skills</h2>
+            <div class="my-skills-wrap" id="skills-cards"></div>
+        </section>
+        <section id="featured">
+            <h2>Featured Project</h2>
+            <div class="project" id="featured-project"></div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-title">
+            <div class="title-logo">
+                <img src="images/logo.svg" alt="Cloper Technologies logo">
+                <span>CLOPER TECHNOLOGIES</span>
+            </div>
+            <p class="tag">Bridging The World Through Technology</p>
+        </div>
+        <div class="footer-left">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="references.html" target="_blank">References</a>
+        </div>
+        <div class="social-links">
+            <a href="https://youtube.com/@heischima"><img src="images/youtube-1.svg" alt="Youtube logo"></a>
+            <a href="https://x.com/_heischima"><img src="images/twitter-square.svg" alt="Twitter logo"></a>
+            <a href="https://chima-001/github.com.io"><img src="images/github-text.svg" alt="Github logo"></a>
+            <a href="https://linkedin.com/in/chima-nnaji-1621523a3"><img src="images/linkedin-square.svg"
+                    alt="Linkedin logo"></a>
+        </div>
+        <div class="footer-right">
+            <p>Cloper Technologies • Official Portfolio Website</p>
+            <p>Created and Developed by Chima Nnaji</p>
+            <p>© <span id="currentyear"></span> • Cloper Technologies • Nigeria</p>
+            <p>cnnaji01@outlook.com</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+
+</html>

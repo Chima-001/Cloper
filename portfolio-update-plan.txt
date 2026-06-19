@@ -1,0 +1,54 @@
+- Use JSON to structure items for better flexibility (especially for pictures, projects, certifications, information, tools,
+    skills etc).
+
+✅- Move the entire website to a different and more personal github site instead of wdd131.
+
+✅- Separate the css files for different screen sizes.
+
+✅- Add/update the social meta tags of different social media platforms for all pages.
+
+- Update the nav and hamburger menu: to open by the right instead of the top ❌(decided against);
+                                     to have border-bottom clearly separating each nav link from the other;
+                                     move the theme-toggle icon from its hanging position to horizontal alignment
+                                        with the nav links in the large view and to either disappear when hamburger is
+                                        open in smaller views or moved to the bottom of the nav, while the screen blurs
+                                        in background.
+
+✅- Align the nav links for better visual appeal.
+
+- Possibly update the About page profile-picture (also add box-shadow); add more pictures to fill up the spaces to the right
+    (especially in larger views); add more new certification e.g Pathway-Connect.
+
+- Add more new projects to the Projects page; add a backend projects filter to the Projects page.
+
+- Add a hero image to the Home page (possibly use the current profile-image as hero or add another) while considering the
+    responsiveness for the different screen sizes, i.e smaller screens may span full width, larger screens may span main width;
+    randomly loop between the featured projects between the various projects from the Projects page with animation (excluding the
+    back-end projects), at a time interval.
+
+- Add more skills to the skills section (JSON, API, CRUD, UIX interface).
+
+- Add a dark mode feature to include black background or Liquid Glass.
+
+- Add CSS animation CardReveal to the necessary places in the entire website.
+
+- Improve responsiveness to accommodate more screen sizes.
+
+- Add title to the form elements in contact page.
+
+- Add modals and dialogs to contain descriptions and necessary information where needed.
+
+- Add CSS animations to the various buttons.
+
+- Add more elements to the footer, e.g social links images, any other necessary element.
+
+- Update preface to Liquid Glass, where necessary.
+
+- Add CSS animation (.place-card figure img:hover {
+        filter: sepia(0.4) brightness(1.15);
+        transform: scale(1.04);
+    })
+
+- Using APIs, add code to track webpage visitors using their IP.
+
+- More improvements will be made during the update.

@@ -1,0 +1,1484 @@
+/* ============================================================
+   devnest-smaller.css  |  BASE STYLES
+   Mobile-first. No media query — applies to every screen.
+   devnest-medium.css and devnest-larger.css build on top.
+
+   Strategy:
+   • clamp()        → fluid values (font sizes, spacing, image
+                       sizes, gaps). Scales continuously so many
+                       intermediate breakpoints aren't needed.
+   • Media queries  → structural changes only (layout direction,
+                       nav behaviour, column counts, show/hide).
+   ============================================================ */
+
+
+/* =====================================================
+   DESIGN TOKENS
+   ===================================================== */
+
+:root {
+    /* Colours */
+    --bg: #01091c;
+    --surface: #1e293b;
+    --surface2: #263348;
+    --border: #334155;
+    --cyan: #22d3ee;
+    --cyan-dim: rgba(34, 211, 238, 0.08);
+    --white: #f8fafc;
+    --muted: #94a3b8;
+    --nav-hover: #010712;
+
+    /* Typography */
+    --font-head: 'Roboto', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'DM Sans', sans-serif;
+
+    /* Effects */
+    --shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
+    --glow: 0 0 28px rgba(34, 211, 238, 0.22);
+    --glow-hover: 0 0 36px rgba(34, 211, 238, 0.38);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --ease: 0.22s ease;
+}
+
+body.light-mode {
+    --bg: #f0f4f8;
+    --surface: #dde5ef;
+    --surface2: #cad4e0;
+    --border: #b8c4d4;
+    --cyan: #0369a1;
+    --cyan-dim: rgba(3, 105, 161, 0.08);
+    --white: #0f172a;
+    --muted: #475569;
+    --nav-hover: #e0e4e9;
+    --glow: 0 0 28px rgba(3, 105, 161, 0.2);
+    --glow-hover: 0 0 36px rgba(3, 105, 161, 0.35);
+}
+
+
+/* =====================================================
+   RESET
+   ===================================================== */
+
+*,
+*::before,
+*::after {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   BASE
+   ===================================================== */
+
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    transition: background-color 1s ease, color 1s ease;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =====================================================
+   HEADER & NAV
+   ===================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* background-color: var(--surface); */
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    width: 100%;
+    margin: 0;
+    transition: background 0.3s ease;
+    /* padding: 1rem 0; */
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+        background: rgba(0, 0, 0, 0.25);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+}
+
+#theme-icon {
+    filter: invert(1) opacity(70%);
+}
+
+body.light-mode #theme-icon {
+    filter: invert(0);
+}
+
+header.scrolled {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: center; */
+    /* position: relative; */
+    width: 100%;
+    padding-top: .5rem;
+    /* margin-bottom: -1rem; */
+}
+
+.nav-top {
+    display: contents;
+    width: 100%;
+    box-sizing: border-box;
+    /* justify-content: space-between; */
+    /* flex-direction: row;
+    align-items: center;
+    width: 100%; */
+    /* flex: 1; */
+}
+
+/* --- Logo --- */
+
+.logo {
+    padding-left: .7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--white);
+    font-family: var(--font-head);
+    flex: 1;
+    order: 1;
+    /* display: inline-block; */
+    max-width: fit-content;
+    /* margin-right: 3rem; */
+}
+
+/* .logo a{
+    flex: 0 0 auto;
+    width: auto;
+} */
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+/* index.html uses <span class="title"> directly inside .logo */
+.title {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+}
+
+/* other pages wrap .title + .tag inside .title-div */
+/* .title-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+    line-height: 1.2;
+} */
+
+/* --- Nav list — hidden on mobile, revealed by .open --- */
+
+nav ul {
+    position: static;
+    list-style: none;
+    /* display: block; */
+    flex-direction: column;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    flex-basis: 100%;
+    margin-top: 0.65rem;
+    /* padding: 0.4rem 0; */
+    /* top: 100%;
+    left: 0;
+    right: 0; */
+    z-index: 99;
+    order: 4;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 3s ease-out;
+}
+
+nav ul li {
+    width: 100%;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--border);
+    transition: color var(--ease), background-color var(--ease), border-color var(--ease);
+}
+
+nav ul a.active {
+    color: var(--cyan);
+    border-left-color: var(--cyan);
+    font-weight: 700;
+    /* background-color: var(--cyan-dim); */
+}
+
+nav ul a:hover {
+    color: var(--white);
+    background-color: var(--nav-hover);
+}
+
+nav ul.open {
+    display: flex;
+    max-height: 500px;
+}
+
+/* --- Hamburger — fixed on smallest screens --- */
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 1rem;
+    position: static;
+    right: 1rem;
+    top: 0.85rem;
+    z-index: 110;
+    margin-left: 0;
+    order: 3;
+    max-width: fit-content;
+    /* margin-top: -.5rem; */
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* =====================================================
+   THEME TOGGLE
+   ===================================================== */
+
+/* #theme-bar {
+    position: sticky;
+    top: 58px;
+    z-index: 98;
+    display: flex;
+    padding: 0.2rem 1.4rem;
+    background: var(--surface);
+    pointer-events: none;
+    width: fit-content;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    margin-left: auto;
+    border: 1px solid var(--border);
+    border-top: none;
+} */
+
+#theme-toggle {
+    position: static;
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* pointer-events: all; */
+    /* outline: none; */
+    display: flex;
+    align-items: center;
+    /* padding: 0.4rem; */
+    /* margin-left: auto; */
+    order: 2;
+    margin-left: auto;
+}
+
+#theme-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    /* transform: scale(3); */
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+#theme-icon.switching {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0;
+}
+
+
+/* =====================================================
+   MAIN LAYOUT
+   The clamp on padding and gap means most spacing
+   scales automatically without extra breakpoints.
+   max-width steps up in devnest-medium/larger.
+   ===================================================== */
+
+main {
+    margin: 0 auto;
+    margin-top: -1.5rem;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3.5rem, 9vw, 6.5rem);
+    max-width: 480px;
+}
+
+
+#hero {
+    /* background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.75)), url('images/hero-bg.wepb');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%); */
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+#hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+    /* opacity: 0; */
+    transition: opacity 1.2s ease;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(17, 16, 8, 0.85));
+}
+
+/* #hero-bg::after {
+    opacity: 1;
+    background-image: linear-gradient(rgba(10, 10, 10, 0.78), rgba(10, 10, 10, 0.78));
+    content: '';
+    position: absolute;
+    inset: 0;
+} */
+
+#hero .hero-text,
+#hero .hero-img {
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   TYPOGRAPHY
+   Font sizes all use clamp so they scale fluidly.
+   ===================================================== */
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-head);
+    color: var(--cyan);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(1.75rem, 6vw, 3rem);
+    margin-bottom: 0.75rem;
+}
+
+/* Section labels — small, all-caps, underlined */
+h2 {
+    font-size: clamp(0.68rem, 2.2vw, 0.82rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5rem;
+    height: 2px;
+    background: var(--cyan);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    margin-bottom: 0.35rem;
+}
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.prm-button {
+    display: inline-block;
+    padding: 0.6rem 1.35rem;
+    background-color: var(--cyan);
+    color: var(--bg);
+    font-family: var(--font-head);
+    font-size: clamp(0.78rem, 2vw, 0.88rem);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    border: none;
+    letter-spacing: 0.03em;
+    transition: opacity var(--ease), box-shadow var(--ease);
+}
+
+.prm-button:hover {
+    opacity: 0.82;
+    box-shadow: var(--glow);
+}
+
+.contact-btn {
+    margin-top: 1.5rem;
+    display: inline-block;
+}
+
+.outline-button {
+    display: inline-block;
+    padding: 0.6rem 1.35rem;
+    background: transparent;
+    color: var(--cyan);
+    font-family: var(--font-head);
+    font-size: clamp(0.78rem, 2vw, 0.88rem);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--cyan);
+    letter-spacing: 0.03em;
+    transition: background-color var(--ease), color var(--ease), box-shadow var(--ease);
+}
+
+.outline-button:hover {
+    background-color: var(--cyan);
+    color: var(--bg);
+    box-shadow: var(--glow);
+}
+
+/* .my-skill-card,
+.project-card,
+.project,
+.edu,
+.stack-list li,
+.contact-info,
+#contact-form {
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+        transform opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+} */
+
+.my-skill-card.animate-in,
+.project-card.animate-in,
+.project.animate-in,
+.edu.animate-in,
+.stack-list li.animate-in,
+/* .contact-info.animate-in, */
+.contact-intro.animate-in,
+.socials a.animate-in,
+#contact-form.animate-in,
+.project.animate-in,
+.map.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* #socials-list{
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+        transform opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+} */
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+#hero {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1.75rem, 5vw, 3rem);
+}
+
+.hero-text {
+    width: 100%;
+}
+
+.hero-text h1 {
+    color: var(--white);
+    /* name is white, not cyan */
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    margin-bottom: 0.4rem;
+}
+
+.tagline {
+    color: var(--cyan);
+    font-family: var(--font-mono);
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+    margin-bottom: 0.9rem;
+    opacity: 0.9;
+}
+
+.bio {
+    color: var(--muted);
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    line-height: 1.8;
+    margin-bottom: 1.75rem;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Image uses clamp — no hard size overrides needed in breakpoints */
+.hero-img img {
+    width: clamp(140px, 42vw, 220px);
+    height: clamp(140px, 42vw, 220px);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--cyan);
+    box-shadow: var(--glow), 0 10px 40px rgba(0, 0, 0, 0.45);
+    transition: box-shadow var(--ease);
+}
+
+.hero-img img:hover {
+    box-shadow: var(--glow-hover), 0 10px 40px rgba(0, 0, 0, 0.45);
+    /* filter: sepia(0.4) brightness(1.15); */
+    transform: scale(1.04);
+}
+
+
+/* =====================================================
+   SKILLS
+   Note: current HTML uses .my-skills-wrap (with 's').
+   This matches the HTML. Will be unified when we do
+   the HTML pass (the grid has never applied before).
+   ===================================================== */
+
+.my-skills-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+}
+
+.my-skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(1rem, 3.5vw, 1.4rem);
+    opacity: 0;
+    transform: translateY(50px);
+    /* transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), */
+    transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease), opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.my-skill-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-3px);
+    box-shadow: var(--glow);
+}
+
+.my-skill-card h3 {
+    color: var(--cyan);
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.35rem;
+}
+
+.my-skill-card p {
+    color: var(--muted);
+    font-size: 0.855rem;
+    line-height: 1.65;
+}
+
+
+/* =====================================================
+   FEATURED PROJECT
+   ===================================================== */
+
+.project {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    /* transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), */
+    transition: border-color var(--ease), box-shadow var(--ease), opacity 5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project:hover {
+    border-color: var(--cyan);
+    box-shadow: var(--glow);
+}
+
+.project>img {
+    width: 100%;
+    height: clamp(180px, 40vw, 300px);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.project .project-info {
+    padding: clamp(1.25rem, 4vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+}
+
+.project .project-info h3 {
+    color: var(--white);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    margin-bottom: 0;
+}
+
+.project .project-info p {
+    color: var(--muted);
+    font-size: clamp(0.875rem, 2vw, 0.95rem);
+    line-height: 1.75;
+    flex: 1;
+}
+
+
+/* =====================================================
+   PROJECTS GRID
+   ===================================================== */
+
+#projects h1 {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.filter-button {
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: clamp(0.78rem, 2vw, 0.88rem);
+    transition: border-color var(--ease), color var(--ease), background-color var(--ease);
+}
+
+.filter-button.active,
+.filter-button:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: var(--cyan-dim);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+/* Project card — clean layout, no negative margin hacks */
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    /* transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), */
+    transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease), opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--cyan);
+    box-shadow: var(--glow), var(--shadow);
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+.projects-grid .project-card img {
+    width: 100%;
+    height: clamp(170px, 36vw, 220px);
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.project-card .project-info {
+    padding: clamp(1rem, 3vw, 1.35rem);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.4rem;
+}
+
+/* Override global h2 section-label styles inside project cards */
+.project-card .project-info h2 {
+    font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+    color: var(--white);
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.project-card .project-info h2::after {
+    display: none;
+}
+
+.project-info p {
+    color: var(--muted);
+    font-size: 0.855rem;
+    line-height: 1.65;
+    flex: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.75rem;
+    margin-top: auto;
+}
+
+
+/* =====================================================
+   ABOUT
+   ===================================================== */
+
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1.75rem, 5vw, 3rem);
+}
+
+/* #about-bio{
+    min-height: 500px;
+} */
+
+.about-img img {
+    width: clamp(140px, 42vw, 200px);
+    height: clamp(140px, 42vw, 200px);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--cyan);
+    box-shadow: var(--glow), 0 10px 40px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+}
+
+.about-text h1 {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.about-text p {
+    color: var(--muted);
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+}
+
+
+/* =====================================================
+   EDUCATION
+   Using block layout so the h2's margin-bottom provides
+   heading-to-content spacing, and .edu margin-bottom
+   handles item-to-item spacing — no gap double-spacing.
+   ===================================================== */
+
+.edu {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--cyan);
+    border-radius: var(--radius);
+    padding: clamp(0.9rem, 3vw, 1.35rem);
+    margin-bottom: 0.75rem;
+    opacity: 0;
+    transform: translateY(50px);
+    /* transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), */
+    transition: box-shadow var(--ease), opacity 3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.edu:last-child {
+    margin-bottom: 0;
+}
+
+.edu:hover {
+    box-shadow: var(--glow);
+}
+
+.edu h3 {
+    color: var(--cyan);
+    font-size: clamp(0.875rem, 2vw, 0.95rem);
+    margin-bottom: 0.2rem;
+}
+
+.edu p {
+    color: var(--muted);
+    font-size: 0.855rem;
+}
+
+
+/* =====================================================
+   STACK LIST
+   ===================================================== */
+
+.stack-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.stack-list li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--cyan);
+    font-family: var(--font-mono);
+    opacity: 0;
+    transform: translateY(50px);
+    /* transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), */
+    transition: border-color var(--ease), background var(--ease), opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stack-list li:hover {
+    border-color: var(--cyan);
+    background: var(--cyan-dim);
+}
+
+
+/* =====================================================
+   CONTACT
+   ===================================================== */
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 5vw, 3rem);
+}
+
+#contact h1 {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.contact-info {
+    text-align: center;
+    /* opacity: 0;
+    transform: translateY(50px);
+    transition: background-color var(--ease), color var(--ease), box-shadow var(--ease), opacity 5s cubic-bezier(0.22, 1, 0.36, 1); */
+
+}
+
+.contact-intro {
+    color: var(--muted);
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    /* transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), */
+    transition: background-color var(--ease), color var(--ease), box-shadow var(--ease), opacity 4s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.socials {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.socials a {
+    color: var(--cyan);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    border: 1px solid var(--cyan);
+    padding: 0.3rem 0.85rem;
+    border-radius: 100px;
+    opacity: 0;
+    transform: translateY(50px);
+    /* transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), */
+    transition: background-color var(--ease), color var(--ease), box-shadow var(--ease), opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.socials a:hover {
+    background-color: var(--cyan);
+    color: var(--bg);
+    box-shadow: var(--glow);
+}
+
+
+/* =====================================================
+   CONTACT FORM
+   ===================================================== */
+
+#contact-form {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: background-color var(--ease), color var(--ease), box-shadow var(--ease), opacity 5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+fieldset {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(1.25rem, 4.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    background-color: var(--surface);
+}
+
+legend {
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: var(--cyan);
+    font-size: clamp(1.05rem, 3.5vw, 1.35rem);
+    padding: 0 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+
+.hint {
+    font-style: italic;
+    font-size: 0.62rem;
+    font-weight: 400;
+    color: var(--white);
+    background-color: var(--border);
+    padding: 0.1rem 0.4rem;
+    border-radius: 100px;
+    margin-left: 0.35rem;
+    opacity: 0.8;
+}
+
+input,
+textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 0.9rem;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    width: 100%;
+    transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+}
+
+input:required {
+    border-left: 3px solid rgba(185, 28, 28, 0.55);
+}
+
+input:required:valid {
+    border-left: 3px solid rgba(21, 128, 61, 0.65);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+#form-confirm {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+
+/* =====================================================
+   MAP
+   ===================================================== */
+
+.map {
+    margin-top: 1.5rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: background-color var(--ease), color var(--ease), box-shadow var(--ease), opacity 5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+iframe {
+    border: none;
+    width: 100%;
+    height: 240px;
+    display: block;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 2rem 1.25rem;
+    z-index: 1;
+    position: relative;
+}
+
+footer::before {
+    content: 'CLOPER';
+    position: absolute;
+    font-size: clamp(70px, 15vw, 300px);
+    line-height: 1;
+    opacity: 0.03;
+    font-weight: 800;
+    color: var(--cyan);
+    text-align: center;
+    justify-self: center;
+    z-index: -1;
+}
+
+.footer-title {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+.footer-title .title-logo {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.footer-title img {
+    grid-row: 1;
+    grid-column: 1;
+    width: 28px;
+    height: 28px;
+}
+
+.footer-title span {
+    font-size: .9rem;
+    font-weight: 700;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+footer .tag {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    opacity: 0.75;
+    grid-row: 2;
+}
+
+/* Nav links inside footer (index.html .footer-left) */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-left a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color var(--ease);
+}
+
+.footer-left a:hover,
+.footer-left a.active {
+    color: var(--cyan);
+}
+
+/* Social icons */
+.social-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    /* opacity: 0.65; */
+    transition: opacity var(--ease), transform var(--ease);
+}
+
+.social-links a:hover img {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Right column or simple p-based footer */
+.footer-right p,
+footer>p {
+    color: var(--muted);
+    font-size: 0.8rem;
+    line-height: 1.65;
+}
+
+footer a {
+    color: var(--cyan);
+    text-decoration: none;
+    transition: opacity var(--ease);
+}
+
+footer a:hover {
+    opacity: 0.72;
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   POPUP
+   ===================================================== */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    backdrop-filter: blur(4px);
+}
+
+.popup-overlay.show {
+    display: flex;
+}
+
+.popup-box {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    max-width: 240px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    gap: 1.25rem;
+}
+
+.popup-box p {
+    color: var(--white);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+
+/* =====================================================
+   MISC
+   ===================================================== */
+
+.text p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: clamp(1rem, 3vw, 1.35rem);
+    margin-top: auto;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 300;
+    padding: 1rem;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.modal-body {
+    padding: clamp(1.25rem, 4vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#modal-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+#modal-title {
+    color: var(--white);
+    font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
+#modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* .tag-pill {
+    background: var(--cyan-dim);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 100px;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+} */
+
+.modal-links {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+#modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--white);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    z-index: 10;
+    transition: background var(--ease);
+}
+
+#modal-close:hover {
+    background: var(--border);
+}
+
+.card-img-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-grid .project-card img {
+    width: 100%;
+    height: clamp(170px, 36vw, 220px);
+    object-fit: cover;
+    display: block;
+}
+
+.hover-hint {
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.95) 65%);
+    color: var(--cyan);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 2rem 0 0.85rem;
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.hover-hint svg {
+    width: 12px;
+    height: 12px;
+}
+
+.project-card:hover .hover-hint {
+    transform: translateY(0);
+}
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tag-pill {
+    background: var(--cyan-dim);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 100px;
+    padding: 0.18rem 0.7rem;
+    font-size: 0.66rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+}
+
+body.projects-grid .project-card .project-info{
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    transform: none;
+    pointer-events: auto;
+}
+
+.typing::after{ content: '|';
+    animation: blink 1s step-end infinite}
+@keyframes blink { 50% {opacity: 0;}     
+    }

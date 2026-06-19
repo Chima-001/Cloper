@@ -1,0 +1,17 @@
+[
+  {
+    "institution": "BYU-Pathway Worldwide",
+    "credential": "Software Development (B.Sc)",
+    "status": "Currently enrolled"
+  },
+  {
+    "institution": "freeCodeCamp.Org",
+    "credential": "HTML, CSS, JavaScript and Python",
+    "status": "Certified"
+  },
+  {
+    "institution": "University of Nigeria, Nsukka",
+    "credential": "Laws / Legal Studies (LL.B)",
+    "status": "Currently enrolled"
+  }
+]

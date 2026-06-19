@@ -1,0 +1,90 @@
+[
+  {
+    "id": "lazy-loading",
+    "title": "Lazy Loading",
+    "description": "A progressive image loading demonstration built with HTML, CSS, and JavaScript. Implements the native loading=\"lazy\" attribute alongside a CSS fade-from-black animation, causing images to smoothly appear only as they enter the viewport while scrolling. A key performance optimisation technique for modern web pages.",
+    "image": "images/project8.webp",
+    "imageAlt": "Lazy Loading project screenshot",
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd131/week04/lazyload.html",
+    "githubUrl": "https://github.com/Chima-001/wdd131",
+    "featured": true
+  },
+  {
+    "id": "open-waters-rafting",
+    "title": "Open Waters Rafting Site",
+    "description": "A multi-page rafting company website built with HTML and CSS. Features a responsive layout, styled navigation, and a contact form.",
+    "image": "images/project3.webp",
+    "imageAlt": "Open Waters Rafting Site screenshot",
+    "tags": [
+      "html",
+      "css"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd130/wwr/index.html",
+    "githubUrl": "https://github.com/Chima-001/wdd130",
+    "featured": false
+  },
+  {
+    "id": "product-review-form",
+    "title": "Product Review Form",
+    "description": "A dynamic product review form built with HTML, CSS, and JavaScript. Features star rating, real-time input feedback, and DOM manipulation.",
+    "image": "images/project6.webp",
+    "imageAlt": "Product Review Form screenshot",
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd131/form.html",
+    "githubUrl": "https://github.com/Chima-001/wdd131",
+    "featured": false
+  },
+  {
+    "id": "temple-album",
+    "title": "Temple Album",
+    "description": "A responsive image gallery showcasing LDS temples worldwide. Includes a hamburger navigation, lazy loading, and category filtering.",
+    "image": "images/project5.webp",
+    "imageAlt": "Temple Album screenshot",
+    "tags": [
+      "css",
+      "js"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd131/filtered-temples.html",
+    "githubUrl": "https://github.com/Chima-001/wdd131",
+    "featured": false
+  },
+  {
+    "id": "paris-place-page",
+    "title": "Paris Place Page",
+    "description": "An information page about Paris built with HTML, CSS, and JavaScript. Features a responsive layout and a wind chill calculator.",
+    "image": "images/project9.webp",
+    "imageAlt": "Paris Place Page screenshot",
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd131/place.html",
+    "githubUrl": "https://github.com/Chima-001/wdd131",
+    "featured": false
+  },
+  {
+    "id": "devnest-site-plan",
+    "title": "Devnest.Chima — Site Plan",
+    "description": "A structured website planning document built with HTML and CSS. Covers site purpose, colour schema, and wireframes for the portfolio.",
+    "image": "images/project10.webp",
+    "imageAlt": "Devnest.Chima Site Plan screenshot",
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd131/project/siteplan.html",
+    "githubUrl": "https://github.com/Chima-001/wdd131",
+    "featured": false
+  }
+]
