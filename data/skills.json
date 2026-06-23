@@ -7,13 +7,13 @@
   },
   {
     "name": "JavaScript",
-    "description": "DOM manipulation, events, arrays, objects, localStorage, ES6+.",
+    "description": "DOM manipulation, events, arrays, objects, localStorage, ES6+, async/await, APIs.",
     "showAsCard": true,
     "showInStack": true
   },
   {
     "name": "Python",
-    "description": "Scripting, OOP, file I/O, data structures.",
+    "description": "Backend, automation, data scripting, OOP, file I/O, Flask/Django, data structures.",
     "showAsCard": true,
     "showInStack": true
   },
@@ -25,7 +25,7 @@
   },
   {
     "name": "Git & GitHub",
-    "description": "Version control, branching, GitHub Pages deployment.",
+    "description": "Version control, branching, merging, PRs, GitHub Pages deployment.",
     "showAsCard": true,
     "showInStack": true
   },
@@ -48,7 +48,25 @@
     "showInStack": true
   },
   {
+    "name": "JSON",
+    "description": "Lightweight data storage, transfer, fetch, and format for APIs and configs.",
+    "showAsCard": true,
+    "showInStack": true
+  },
+  {
     "name": "Django",
+    "description": null,
+    "showAsCard": false,
+    "showInStack": true
+  },
+  {
+    "name": "API",
+    "description": null,
+    "showAsCard": false,
+    "showInStack": true
+  },
+  {
+    "name": "CRUD",
     "description": null,
     "showAsCard": false,
     "showInStack": true

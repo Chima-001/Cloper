@@ -68,7 +68,7 @@
         width: auto;
         /* margin-bottom: -1.2rem; */
     }
-    
+
     /* Desktop nav links — underline style, not left-border */
     nav ul a {
         display: block;
@@ -96,6 +96,11 @@
         font-weight: 700;
     }
 
+    body.light-mode nav ul a:hover {
+        border-bottom-color: rgba(58, 73, 87, 0.5);
+
+    }
+
     /* Hide hamburger on desktop */
     .hamburger {
         display: none;
@@ -116,7 +121,7 @@
         object-fit: cover;
         /* transform: scale(2); */
     }
-    
+
     #theme-toggle {
         /* margin-left: auto; */
         margin-bottom: -2rem;
@@ -164,11 +169,17 @@
         gap: clamp(2rem, 5vw, 5rem);
     }
 
+    #hero-bg {
+        height: 55vh;
+        min-height: 500px;
+        max-height: 600px;
+    }
+
     .hero-text {
         max-width: 55%;
     }
 
-    .hero-img{
+    .hero-img {
         order: 1;
     }
 
@@ -179,6 +190,11 @@
     .hero-img img {
         width: clamp(280px, 28vw, 400px);
         height: clamp(280px, 28vw, 400px);
+    }
+
+    .bio {
+        min-width: 40rem;
+        min-height: 0;
     }
 
     /* -------------------------------------------------------
@@ -198,12 +214,11 @@
         align-items: stretch;
         /* width: clamp(280px, 38%, 460px); */
     }
-    
+
     .project>img {
         /* Fixed width column — clamp between sensible bounds */
         width: clamp(280px, 38%, 460px);
         height: clamp(260px, 32vw, 380px);
-        /* max-height: 280px; */
         min-height: 260px;
     }
 
@@ -220,6 +235,17 @@
         gap: 1.75rem;
     }
 
+    #projects h1,
+    .about-text h1,
+    #contact h1 {
+        /* border-left: 3px solid var(--cyan); */
+        text-align: left;
+    }
+
+    /* .filter-buttons{
+        grid-template-columns: auto repeat(3, 1fr);
+    } */
+
     /* -------------------------------------------------------
        ABOUT — side by side
        ------------------------------------------------------- */
@@ -232,19 +258,25 @@
 
     .about-img {
         flex-shrink: 0;
-        margin-top: 2rem;
+        /* margin-top: 2rem; */
+        flex-direction: column;
         /* align-self: center; */
     }
-    
+
     .about-img img {
-        width: clamp(200px, 22vw, 280px);
-        height: clamp(200px, 22vw, 280px);
+        /* width: clamp(200px, 22vw, 280px);
+        height: clamp(200px, 22vw, 280px); */
+        border-radius: 100%;
     }
 
     .about-text {
         flex: 1;
         min-width: 0;
         /* prevent flex overflow */
+    }
+
+    .contact-btn {
+        margin-bottom: 0;
     }
 
     /* -------------------------------------------------------
@@ -275,11 +307,6 @@
         min-width: 320px;
         width: auto;
     }
-
-    /* -------------------------------------------------------
-       FOOTER — 3-column row
-       ------------------------------------------------------- */
-
 
     /* -------------------------------------------------------
        POPUP

@@ -14,7 +14,7 @@ async function renderProfile() {
     const heroImg = document.getElementById('hero-img');
     const aboutName = document.getElementById('about-name');
     const aboutBio = document.getElementById('about-bio');
-    const aboutImg = document.getElementById('about-img');
+    const aboutImgContainer = document.getElementById('about-img');
     if (!heroName && !aboutName) return;
     const p = await fetchJSON('data/profile.json');
     if (heroName) heroName.textContent = p.name;
@@ -29,12 +29,21 @@ async function renderProfile() {
         aboutBio.innerHTML = '';
         typeParagraphs(aboutBio, p.bio, 25)
     }
-    // if (aboutBio) {
-    //     aboutBio.innerHTML = p.bio.map(para => `<p>${para}</p>`).join('');
-    // }
-    if (aboutImg) {
-        aboutImg.src = p.profileImage;
-        aboutImg.alt = p.profileImageAlt;
+    
+    if (aboutImgContainer && p.aboutImg?.length) {
+        aboutImgContainer.innerHTML = '';
+        p.aboutImg.forEach(item => {
+            const imgEl = document.createElement('img');
+            imgEl.src= item.src;
+            imgEl.alt = item.alt;
+            imgEl.classList.add('about-img');
+            imgEl.width = 300;
+            imgEl.loading = "lazy";
+
+            aboutImgContainer.appendChild(imgEl);
+        });
+        // aboutImg.src = p.profileImage;
+        // aboutImg.alt = p.profileImageAlt;
     }
 }
 
@@ -42,7 +51,6 @@ function typeParagraphs(el, paragraphs, speed= 35, index = 0){
     if (index >= paragraphs.length)
         return;
 
-    // el.innerHTML += `<p></p>`;
     const pEl = document.createElement('p');
     el.appendChild(pEl)
 
@@ -58,7 +66,7 @@ async function renderEducation() {
     education.forEach(e => {
         const div = document.createElement('div');
         div.className = 'edu';
-        div.innerHTML = `<h3>${e.institution}</h3><p>${e.credential} — ${e.status}</p>`;
+        div.innerHTML = `<h3>${e.institution}</h3><p>${e.credential} <span data-status="${e.status}">${e.status}</span></p>`;
         container.appendChild(div);
     });
 }

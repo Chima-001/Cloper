@@ -1,8 +1,23 @@
 [
   {
+    "id": "the-lost-atlas",
+    "title": "The Lost Atlas",
+    "description": "A three-page interactive web atlas documenting lost and ancient civilizations. The Lost Atlas combines a custom dark earth-toned design language—built around Cinzel and Raleway typefaces with a gold accent palette—with a fully API-driven data layer.\n\nKey features:\n\n• Dynamic content rendering — Cities pulled from a local JSON data source via the Fetch API with full try/catch error handling, displayed through ES Modules\n\n• Multi-criteria filtering — region, era, and excavation status filters using the array filter method, with selections persisted in localStorage across visits\n\n• Layered API integration — each city’s modal enriches itself in real time with a Wikipedia summary and image, a REST Countries flag/population card, and a related artifact pulled from the Metropolitan Museum of Art’s open collection API\n\n• Interactive mapping — an embedded OpenStreetMap iframe in every modal, centered dynamically on each city’s coordinates\n\n• Accessible modal dialogs — built on the native <dialog> element for keyboard and screen-reader support\n\n• Nomination workflow — a validated HTML form that passes submitted data via query parameters to a dedicated confirmation page",
+    "image": "images/lost-atlas.webp",
+    "imageAlt": "The Lost Atlas screenshot",
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd231/final/",
+    "githubUrl": "https://github.com/Chima-001/wdd231/",
+    "featured": true
+  },
+  {
     "id": "lazy-loading",
     "title": "Lazy Loading",
-    "description": "A progressive image loading demonstration built with HTML, CSS, and JavaScript. Implements the native loading=\"lazy\" attribute alongside a CSS fade-from-black animation, causing images to smoothly appear only as they enter the viewport while scrolling. A key performance optimisation technique for modern web pages.",
+    "description": "A focused technical demonstration exploring native browser lazy loading. The page presents a vertical sequence of images, each fitted with the loading=\"lazy\" attribute and paired with a custom CSS fade-in-from-black transition. As the user scrolls, images remain hidden until they approach the viewport, at which point the browser defers their request and the fade animation softens their appearance. The result is a noticeably lighter initial page load and a deliberate, cinematic reveal — a practical study in balancing performance with visual polish.\n\nKey features:\n\n• Native lazy loading — uses the browser’s built-in loading=\"lazy\" attribute rather than a JavaScript library\n\n• Fade-from-black transition — a CSS animation that makes each image materialize smoothly rather than popping in abruptly\n\n• Performance-first design — isolates a single optimization concept to demonstrate reduced initial page weight on image-heavy pages\n\n• Sequential image flow — seven distinct images flow down a single-column layout, each triggering its own load/animation cycle independently",
     "image": "images/project8.webp",
     "imageAlt": "Lazy Loading project screenshot",
     "tags": [
@@ -11,28 +26,28 @@
       "js"
     ],
     "liveUrl": "https://chima-001.github.io/wdd131/week04/lazyload.html",
-    "githubUrl": "https://github.com/Chima-001/wdd131",
+    "githubUrl": "https://github.com/Chima-001/wdd131/",
     "featured": true
   },
   {
     "id": "open-waters-rafting",
-    "title": "Open Waters Rafting Site",
-    "description": "A multi-page rafting company website built with HTML and CSS. Features a responsive layout, styled navigation, and a contact form.",
-    "image": "images/project3.webp",
+    "title": "Open Waters Rafting",
+    "description": "A full multi-page marketing site built for a fictional Nigerian rafting and water-adventure company. The homepage opens with a bold hero banner and call-to-action, followed by a three-panel feature section highlighting the company’s mission, adventure tiers, and family-friendly trips. The site extends across dedicated About, Trips, and Contact pages, all tied together with consistent branding, a styled navigation bar, and a newsletter signup form. Social links and a structured footer round out a complete small-business web presence — demonstrating multi-page architecture, layout consistency, and content hierarchy using only HTML and CSS.\n\nKey features:\n\n• Multi-page architecture — Home, About Us, Trips, and Contact pages tied together with consistent navigation and branding\n\n• Hero section with CTA — a full-width banner image paired with a “Book Your Adventure” call-to-action button\n\n• Feature highlight blocks — three image-paired sections (Mission, Adventures, Family-Friendly Fun) using repetition for visual consistency\n\n• Newsletter signup form — name/email capture section for ongoing user engagement\n\n• Social integration — footer icon links to Facebook, Instagram, and YouTube\n\n• Responsive layout — adapts cleanly across screen sizes using pure custom CSS",
+    "image": "images/open-waters.webp",
     "imageAlt": "Open Waters Rafting Site screenshot",
     "tags": [
       "html",
       "css"
     ],
     "liveUrl": "https://chima-001.github.io/wdd130/wwr/index.html",
-    "githubUrl": "https://github.com/Chima-001/wdd130",
-    "featured": false
+    "githubUrl": "https://github.com/Chima-001/wdd130/",
+    "featured": true
   },
   {
     "id": "product-review-form",
     "title": "Product Review Form",
-    "description": "A dynamic product review form built with HTML, CSS, and JavaScript. Features star rating, real-time input feedback, and DOM manipulation.",
-    "image": "images/project6.webp",
+    "description": "An interactive product feedback form built to capture structured user input. It features a dynamic star-rating selector built with JavaScript and the CSS sibling-selector pattern, a product dropdown, a date picker, and a set of checkboxes for feature feedback (durability, ease of use, performance, design). Real-time DOM manipulation updates the rating display as the user interacts with it, and optional fields allow for a written review and reviewer name — a clean example of form UX paired with JavaScript-driven interactivity.\n\nKey features:\n\n• Custom star rating widget — a 5-star clickable rating system built with JavaScript rather than a default input type\n\n• Custom validation — uses setCustomValidity to provide tailored, real-time validation feedback beyond default browser messages\n\n• Dynamic product selector — dropdown menu for selecting the reviewed product\n\n• Multi-select feature checklist — checkboxes for Durability, Ease of Use, Performance, and Design\n\n• Mixed required/optional fields — required rating and product fields alongside optional written review and reviewer name\n\n• DOM manipulation — JavaScript actively manages form state and input feedback as the user interacts",
+    "image": "images/form.webp",
     "imageAlt": "Product Review Form screenshot",
     "tags": [
       "html",
@@ -40,28 +55,44 @@
       "js"
     ],
     "liveUrl": "https://chima-001.github.io/wdd131/form.html",
-    "githubUrl": "https://github.com/Chima-001/wdd131",
-    "featured": false
+    "githubUrl": "https://github.com/Chima-001/wdd131/",
+    "featured": true
   },
   {
     "id": "temple-album",
     "title": "Temple Album",
-    "description": "A responsive image gallery showcasing LDS temples worldwide. Includes a hamburger navigation, lazy loading, and category filtering.",
+    "description": "A filterable image gallery showcasing Latter-day Saint temples from Nigeria and around the world. Visitors can browse the full collection or narrow results using category filters — Old, New, Large, and Small — powered by JavaScript DOM filtering. The gallery uses a responsive hamburger navigation for smaller screens and lazy-loaded images to keep performance smooth as the collection grows. A clean example of combining categorisation logic with an image-heavy responsive layout.\n\nKey features:\n\n• Array-driven filtering — JavaScript’s filter method narrows displayed temples by category (Old, New, Large, Small) instead of using hardcoded HTML per category\n\n• Dynamic card generation — temple cards are built and inserted into the DOM from a JavaScript data array rather than static markup\n\n• Responsive hamburger navigation — collapsible menu for small-screen devices\n\n• Lazy-loaded images — temple photos load only as they enter the viewport for better performance\n\n• CSS Grid/Flexbox layout — adapts the gallery grid responsively across screen sizes",
     "image": "images/project5.webp",
     "imageAlt": "Temple Album screenshot",
     "tags": [
+      "html",
       "css",
       "js"
     ],
     "liveUrl": "https://chima-001.github.io/wdd131/filtered-temples.html",
-    "githubUrl": "https://github.com/Chima-001/wdd131",
-    "featured": false
+    "githubUrl": "https://github.com/Chima-001/wdd131/",
+    "featured": true
+  },
+  {
+    "id": "chamber-of-commerce",
+    "title": "Enugu Chamber of Commerce",
+    "description": "A five-page responsive business directory website simulating a real chamber of commerce platform for the city of Enugu, Nigeria.This project focuses on structured data presentation and responsive layout engineering, using CSS Grid template areas that reconfigure across three distinct breakpoints to adapt cleanly from mobile to desktop.\n\nKey features:\n\n• Modular JavaScript architecture — business and city data managed through ES Modules for clean separation of concerns\n\n• Responsive grid system — grid-template-areas restructure the layout at three breakpoints for an optimal experience on any device\n\n• Business directory with interactive modals — each listing opens a modal containing an embedded OpenStreetMap iframe showing the business location\n\n• Visual engagement — an automated image shuffle/spotlight animation on the discover page to showcase featured local businesses\n\n• Multi-page user flow — Home, Directory, Join, Discover, and a Thank You confirmation page tied together with consistent navigation and branding\n\n• Standards-compliant, framework-free CSS — custom-written stylesheets split by breakpoint complexity (chamber-small.css, chamber-larger.css) with no external libraries",
+    "image": "images/chamber.webp",
+    "imageAlt": "Enugu Chamber of Commerce screenshot",
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "liveUrl": "https://chima-001.github.io/wdd231/chamber/",
+    "githubUrl": "https://github.com/Chima-001/wdd231/",
+    "featured": true
   },
   {
     "id": "paris-place-page",
     "title": "Paris Place Page",
-    "description": "An information page about Paris built with HTML, CSS, and JavaScript. Features a responsive layout and a wind chill calculator.",
-    "image": "images/project9.webp",
+    "description": "An informational destination page profiling Paris, France. It presents key country data — area, population, capital, language, currency, time zone, and calling code — in a structured table, alongside a live weather panel showing current temperature, conditions, and wind speed. A custom JavaScript-powered wind chill calculator computes real-time “feels like” temperature from the fetched weather data, demonstrating both API-style data presentation and applied JavaScript math in a real-world context.\n\nKey features:\n\n• Structured data table — area, population, capital, language, currency, time zone, calling code, and internet TLD presented in a clean table layout\n\n• JavaScript wind chill calculator — computes and displays the perceived temperature dynamically using a real meteorological formula based on given temperature and wind speed\n\n• Responsive <picture> element — serves appropriately sized images depending on screen size and resolution\n\n• CSS Grid layout — structures the data and weather sections responsively\n\n• Themed color scheme — French flag-inspired blue, white, and red palette tying the visual design to its subject matter",
+    "image": "images/place.webp",
     "imageAlt": "Paris Place Page screenshot",
     "tags": [
       "html",
@@ -69,22 +100,74 @@
       "js"
     ],
     "liveUrl": "https://chima-001.github.io/wdd131/place.html",
-    "githubUrl": "https://github.com/Chima-001/wdd131",
-    "featured": false
+    "githubUrl": "https://github.com/Chima-001/wdd131/",
+    "featured": true
   },
   {
-    "id": "devnest-site-plan",
-    "title": "Devnest.Chima — Site Plan",
-    "description": "A structured website planning document built with HTML and CSS. Covers site purpose, colour schema, and wireframes for the portfolio.",
+    "id": "cloper-site-plan",
+    "title": "Cloper Technologies — Site Plan",
+    "description": "The original planning document behind this very portfolio. It lays out the site’s purpose and target scenarios, defines the full colour palette and typography system (Space Mono for headings, DM Sans for body text), and includes hand-drawn wireframes for both mobile and desktop layouts. A behind-the-scenes look at the design thinking and planning process that shaped the structure and visual identity of the site you’re browsing now.\n\nKey features:\n\n• Site rationale documentation — explains the name, purpose, and target audience (clients, employers, collaborators)\n\n• User scenario mapping — four core questions the finished site needs to answer for visitors\n\n• Defined color palette — five-color system (Deep Slate background, Surface Slate cards, Electric Cyan accents, Near White text, Muted Gray secondary text)\n\n• Typography system — Space Mono for headings paired with DM Sans for body text, with defined use cases for each\n\n• Embedded wireframes — mobile and desktop layout sketches included directly in the document\n\n• Linked references page — cites external resources and inspirations used in the planning process",
     "image": "images/project10.webp",
-    "imageAlt": "Devnest.Chima Site Plan screenshot",
+    "imageAlt": "Cloper Technologies Site Plan screenshot",
     "tags": [
       "html",
       "css",
       "js"
     ],
-    "liveUrl": "https://chima-001.github.io/wdd131/project/siteplan.html",
-    "githubUrl": "https://github.com/Chima-001/wdd131",
+    "liveUrl": "https://chima-001.github.io/cloper/siteplan.html",
+    "githubUrl": "https://github.com/Chima-001/Cloper/",
+    "featured": false
+  },
+  {
+    "id": "passwords-manager",
+    "title": "Passwords Manager",
+    "description": "Passwords Manager (passwords_manager.py) is an enterprise-grade credential vault application implementing symmetric encryption and persistent storage mechanisms. It demonstrates advanced object-oriented design with master-password authentication, Fernet-based cryptographic security, and comprehensive CRUD operations with rigorous input validation and duplicate prevention.\n\nKey Technical Features:\n\n• Encryption Standard: Fernet (symmetric, time-stamped, authenticated encryption) \n • Key Management: Generated once, persisted to secret.key file, reused on subsequent runs \n• Master Password Storage: Encrypted separately in master.txt for first-time setup verification \n• Duplicate Prevention: Case-insensitive service name comparison during add_password() \n• Case-Insensitive Lookup: `.lower()` normalization for service retrieval \n• Auto-Save Pattern: Implicit persistence after add, edit, delete operations via save_to_file() \n• Error Handling: Granular exception catching with silent failures (returns None/False) \n• Data Validation: Empty string checks, CSV format validation (must be 3 fields) \n• CSV Serialization: Service,Username,EncryptedPassword format with line-based parsing \n\nAdvanced Features:\n\n- Emoji-Based User Feedback: ❗ (error), ⚠️ (warning), ❕ (info) for visual status indication\n- Entry Counter: Displays \"Passwords stored: N\" to show vault size\n- Case-Insensitive Operations: Service names normalized via `.lower()` for flexible lookups\n- Password Generation Integration: Integrates with external generate_password() function (16-char default)\n- Graceful Error Recovery: Skips malformed CSV lines, displays warnings instead of crashing\n- Confirmation Dialogs: Deletion requires explicit y/n confirmation to prevent accidents\n\nUse Cases:\n- Personal password management tool\n- Educational demonstration of encryption concepts\n- Lightweight credentials storage for development environments\n- Team credential sharing with master password protection\n- Backup/archival of sensitive login information\n\nExample Interactive Session:\n\n\n===== PASSWORD MANAGER ======\n\n-- FIRST TIME SETUP --\nCreate your password\nEnter master password: MySecurePass123!\nConfirm master password: MySecurePass123!\nPassword created!\n❕ WARNING! If you lose this password, you will not be able to access your passwords file, forever.\n\nEnter master password or '0' to quit: MySecurePass123!\n\n-- MENU OPTIONS --\n\nPasswords stored: 0\n1. Add Password\n2. Edit Password\n3. Get Password\n4. List Services\n5. View All Passwords\n6. Delete Password\n7. Exit\n\nEnter an option (1-7): 1\nEnter password service: Gmail\nEnter username: john.doe@example.com\nEnter password or 'g' to generate password: g\nGenerated password: X7$mK9@pL2#Q5bN\nPassword X7$mK9@pL2#Q5bN has been successfully saved.\n\nPasswords stored: 1\n",
+    "image": "images/backend3.webp",
+    "imageAlt": "Passwords Manager screenshot",
+    "tags": [
+      "python"
+    ],
+    "liveUrl": "https://github.com/Chima-001/CSE111-2026/week_7/project/",
+    "githubUrl": "https://github.com/Chima-001/cse111-2026/",
+    "featured": false
+  },
+  {
+    "id": "eternal-quest",
+    "title": "Eternal Quest",
+    "description": "Eternal Quest (eternal-quest.cs) is a sophisticated goal-tracking framework implementing polymorphic goal types with gamification mechanics. It employs inheritance hierarchies, file persistence, and point-based progression systems to transform behavioral tracking into an engaging interactive experience.\n\nKey Technical Features:\n\n• Polymorphism  Each goal type implements abstract methods distinctly \n• List Collection  Dynamic array for flexible goal management \n• Point Accumulation  Running total updated on each goal event \n• Level Calculation  Threshold-based progression (e.g., 0-100=L1, 101-250=L2) \n• Serialization  CSV/JSON format for cross-session persistence \n• Auto-Save Pattern  Implicit save on CreateGoal, RecordEvent, DeleteGoal operations \n• User Interface  Console menu system with numbered selections \n• Input Validation  Parse checks and range validation for user entries\n\nUse Cases:\n- Personal habit transformation programs\n- Team challenge leaderboards\n- Employee wellness initiatives\n- Educational achievement tracking\n- Life coaching and self-improvement applications\n\nExample Goal Configuration:\n\nGoal 1: Exercise Daily (Eternal) → 10 pts per session\nGoal 2: Run 5K (Simple) → 100 pts one-time\nGoal 3: Read Book Chapters (Checklist) → 5 pts/chapter, 50 bonus at completion\nGoal 4:\nNo Soda (Negative) → -5 pts per occurrence\n\nAfter 2 weeks: 150 points accumulated → Level 2 reached",
+    "image": "images/backend7.webp",
+    "imageAlt": "Eternal Quest screenshot",
+    "tags": [
+      "c#"
+    ],
+    "liveUrl": "https://github.com/Chima-001/CSE210-2026/week06/EternalQuest/",
+    "githubUrl": "https://github.com/Chima-001/CSE210-2026/",
+    "featured": false
+  },
+  {
+    "id": "mindfulness",
+    "title": "Mindfulness Program",
+    "description": "Mindfulness Program (mindfulness.cs) is an object-oriented wellness application implementing polymorphic activity classes to deliver guided mental health interventions. It demonstrates inheritance, abstraction, and file persistence while providing structured mindfulness exercises with session logging and prompt rotation algorithms.\n\nKey Technical Features:\n\n• Polymorphism  Derived classes override `Run()` method with activity-specific logic \n• Static Members  Shared activity log across all Activity instances \n• List Rotation Algorithm  Checks if used list contains all prompts; resets when exhausted \n• Timer Management  `DateTime` arithmetic for precise duration tracking \n• File I/O  JSON serialization for complex object persistence (can also use CSV/XML) \n• Console Animation  Thread.Sleep() and repeated output for visual feedback \n String Interpolation  F-strings for dynamic message formatting \n\nExample User Flow:\n\nMindfulness Program Menu:\n1. Breathing Activity (5-60 minutes)\n2. Reflecting Activity (prompted self-reflection)\n3. Listing Activity (positive enumeration exercise)\n4. View Activity Log (historical tracking)\n5. Quit",
+    "image": "images/backend4.webp",
+    "imageAlt": "Mindfulness Program screenshot",
+    "tags": [
+      "c#"
+    ],
+    "liveUrl": "https://github.com/Chima-001/CSE210-2026/week05/Mindfulness/",
+    "githubUrl": "https://github.com/Chima-001/CSE210-2026/",
+    "featured": false
+  },
+  {
+    "id": "fitness-tracker",
+    "title": "Fitness Tracker",
+    "description": "Fitness Tracker (Exercise.cs) is a fitness tracking framework leveraging polymorphism to handle multiple exercise modalities with activity-specific metric calculations. It demonstrates inheritance patterns for heterogeneous collection management and provides standardized summary output across diverse exercise types.\"\n\nKey Technical Features:\n\n• Polymorphism  Derived classes implement abstract methods with activity-specific logic \n• Method Overriding  `GetDistance()`, `GetSpeed()`, `GetPace()` override abstract definitions \n• List Heterogeneity  `List<Activity>` stores derived types (Running, Cycling, Swimming) \n Protected Encapsulation  Base class properties accessible to derived classes only \n• Arithmetic Precision  Float-based calculations with time unit conversions (seconds ↔ minutes ↔ hours) \n• Null Safety  Checks for null entries in collection iteration \n• String Formatting  Interpolated strings with decimal formatting (e.g., `{speed:F1}`) \n\nUse Cases:\n- Personal fitness tracking applications\n- Wearable device data aggregation\n- Multi-sport athlete training logs\n- Fitness community leaderboards\n- Health and wellness analytics platforms\n\nExample Output:\n\n13 Jan 2025 Running (25 min): 2.3 km, Speed: 5.5 km/h, Pace: 10.9 min/km\n02 Feb 2025 Cycling (40 min): 7.7 km, Speed: 11.5 km/h\n15 Apr 2025 Swimming (30 min): 0.85 km, Speed: 1.7 km/h",
+    "image": "images/backend8.webp",
+    "imageAlt": "Fitness Tracker screenshot",
+    "tags": [
+      "c#"
+    ],
+    "liveUrl": "https://github.com/Chima-001/CSE210-2026/week07/ExerciseTracking/",
+    "githubUrl": "https://github.com/Chima-001/CSE210-2026/",
     "featured": false
   }
 ]

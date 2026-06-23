@@ -8,9 +8,34 @@
   "phone": "+234 701-880-2179",
   "profileImage": "images/profile-picture.webp",
   "profileImageAlt": "Chimamkpam Nnaji",
+  "aboutImg": [
+    {
+      "src": "images/profile-picture.webp",
+      "alt": "A picture of Chima"
+    },
+    {
+      "src": "images/profile-picture1.webp",
+      "alt": "A picture of Chima"
+    }
+  ],
   "heroSubtitle": "I build clean, responsive web applications with a focus on functionality and user experience.",
   "bio": [
-    "Hi! 👋🏽 My name is Chima and I'm a software developer and engineering student enrolled at BYU-Pathway Worldwide, building my craft from Nigeria. I started my tech journey through freelance web development and AutoCAD drafting. That hands-on foundation shaped how I think about building things — practically, purposefully, and with attention to detail.",
+    "Hi! 👋🏽 My name is Chima and I'm a software developer and engineering student enrolled at BYU-Idaho (Pathway Worldwide), building my craft from Nigeria. I started my tech journey through freelance web development and AutoCAD drafting. That hands-on foundation shaped how I think about building things — practically, purposefully, and with attention to detail.",
     "I enjoy building things that live on the internet — clean, functional, and accessible web applications that solve real problems. I'm working towards becoming a full-stack developer one project at a time while continuing to serve clients as a freelancer and keeping balance with other activities. When I'm not coding, I enjoy listening to music, hitting the gym, reading literature, or thinking through logical problems."
+  ],
+  "heroImages": [
+    "images/hero.webp",
+    "images/hero1.webp",
+    "images/hero2.webp",
+    "images/hero3.webp",
+    "images/hero4.webp",
+    "images/hero5.webp",
+    "images/hero6.webp",
+    "images/hero7.webp",
+    "images/hero8.webp",
+    "images/hero9.webp",
+    "images/hero10.webp",
+    "images/hero11.webp",
+    "images/hero12.webp"
   ]
 }

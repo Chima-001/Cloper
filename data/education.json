@@ -1,8 +1,18 @@
 [
   {
-    "institution": "BYU-Pathway Worldwide",
+    "institution": "BYU-Idaho",
     "credential": "Software Development (B.Sc)",
     "status": "Currently enrolled"
+  },
+  {
+    "institution": "BYU-Idaho",
+    "credential": "Web & Computer Programming (Certificate)",
+    "status": "Certified"
+  },
+  {
+    "institution": "BYU-Pathway Worldwide",
+    "credential": "PathwayConnect (Certificate)",
+    "status": "Certified"
   },
   {
     "institution": "freeCodeCamp.Org",
@@ -11,7 +21,7 @@
   },
   {
     "institution": "University of Nigeria, Nsukka",
-    "credential": "Laws / Legal Studies (LL.B)",
+    "credential": "Laws/Legal Studies (LL.B)",
     "status": "Currently enrolled"
   }
 ]
