@@ -2,7 +2,7 @@ async function initAbout() {
     await renderProfile();
     await renderEducation();
     await renderStackList();
-    // initScrollAnimations();
+
     observeElements('.edu');
     observeElements('.stack-list li');
 }

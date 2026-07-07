@@ -203,4 +203,8 @@
     .popup-box {
         max-width: 380px;
     }
+
+    .projects-grid .project-card.hidden{
+        display: none;
+    }
 }
